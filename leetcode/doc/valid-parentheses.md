@@ -29,6 +29,12 @@
 输出: true
 ```
 
+#### 关键点解析
+- 考察知识点: 数据结构栈，先进先出
+- 异常情况: 压栈 )、]、}
+- 进栈操作: Array.push(el)
+- 出栈操作: Array.pop()
+
 #### code
 [JavaScript: valid-parentheses](../code/JavaScript/valid-parentheses.js)
 
