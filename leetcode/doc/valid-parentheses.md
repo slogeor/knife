@@ -29,5 +29,8 @@
 输出: true
 ```
 
-### 链接
+#### code
+[JavaScript: valid-parentheses](../code/JavaScript/valid-parentheses.js)
+
+#### 链接
 [https://leetcode-cn.com/problems/valid-parentheses](https://leetcode-cn.com/problems/valid-parentheses)
