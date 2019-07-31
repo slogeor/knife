@@ -24,6 +24,9 @@ nums2 = [2,5,6],       n = 3
   - 如果 nums2[secondP] 小，nums1[firstP] 放到 nums1[longP]，同时 longP 和 firstP 减1
   - secondP 小于 0 ，结束
 
+#### 特殊说明
+代码在 leetCode 运行不通过，具体原因没有定位到。
+
 #### code
 [JavaScript: merge-sorted-array](../code/JavaScript/merge-sorted-array.js)
 
