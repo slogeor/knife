@@ -25,7 +25,8 @@ nums2 = [2,5,6],       n = 3
   - secondP 小于 0 ，结束
 
 #### 特殊说明
-代码在 leetCode 运行不通过，具体原因没有定位到。
+- 代码在 leetCode 运行不通过，具体原因没有定位到
+- 需要特别处理好边界值
 
 #### code
 [JavaScript: merge-sorted-array](../code/JavaScript/merge-sorted-array.js)
