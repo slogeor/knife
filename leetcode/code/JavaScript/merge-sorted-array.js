@@ -5,15 +5,14 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
+
 var merge = function(nums1, m, nums2, n) {
   // nums2 为空的情况
-  if (n === 0) return nums1;
-  // nums1 为空的情况，都是占位符
-  if (nums1.length === m || m === 0) return nums2;
+  if (n === 0) return;
 
   var len = nums1.length;
   // nums1 非空的位置
-  var longP = nums1.length - m - 1;
+  var longP = m - 1;
   // 最后的位置
   var shortP = n - 1;
 
@@ -22,7 +21,7 @@ var merge = function(nums1, m, nums2, n) {
       break;
     }
 
-    if (nums1[longP] > nums2[shortP]) {
+    if ((shortP >= 0) && (nums1[longP] > nums2[shortP])) {
       nums1[i] = nums1[longP] ;
       longP--;
     } else {
@@ -30,5 +29,4 @@ var merge = function(nums1, m, nums2, n) {
       shortP--;
     }
   }
-  return nums1;
 };

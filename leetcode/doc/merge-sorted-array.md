@@ -16,17 +16,8 @@ nums2 = [2,5,6],       n = 3
 
 #### 思路
 - 方案1：nums2 追加到 nums1里，然后在对 nums1 进行排序，时间复杂度最好是 O(nlogn)，空间复杂度是O(1)
-- 方案2： 定义一个新数组 nums3，遍历nums1 和 nums2，按顺序将数字放到 nums3 数组列，时间复杂度是 O(m)，空间复杂度是 O(m)
-- 数组逆序遍历
-  - 需要三个指针，longP 指向 nums1 的尾结点，firstP 指向 nums1 非空结点，secondP 指向 nums2 的尾结点；
-  - 比较 nums1[firstP] 和  nums2[secondP]
-  - 如果 nums2[secondP] 大，将 nums2[secondP] 放到 nums1[longP]，同时 longP 和 secondP 减1
-  - 如果 nums2[secondP] 小，nums1[firstP] 放到 nums1[longP]，同时 longP 和 firstP 减1
-  - secondP 小于 0 ，结束
-
-#### 特殊说明
-- 代码在 leetCode 运行不通过，具体原因没有定位到
-- 需要特别处理好边界值
+- 方案2：定义一个新数组 nums3，遍历nums1 和 nums2，按顺序将数字放到 nums3 数组列，时间复杂度是 O(m)，空间复杂度是 O(m)
+- 方案3：数组逆序遍历，比较 num1 和 nums2 元素的大小
 
 #### code
 [JavaScript: merge-sorted-array](../code/JavaScript/merge-sorted-array.js)
