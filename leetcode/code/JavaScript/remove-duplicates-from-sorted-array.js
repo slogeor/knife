@@ -4,9 +4,9 @@
  */
 var removeDuplicates = function (nums) {
   if (!nums) return 0;
-  // 指向非重复元素的游标
+  // 指向非重复元素的指针
   var i = 0;
-  // 指向数组的游标
+  // 指向数组的指针
   var j = 0;
 
   for (j = 1; j < nums.length; j++) {
