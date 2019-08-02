@@ -13,12 +13,14 @@ class Node {
 /**
  * @description 单链表
  */
-class LinkList {
+class CycleLinkList {
   constructor() {
     // 头结点
     this.head = new Node();
     // 指向当前链表最后一个节点
     this.point = new Node();
+    // 尾结点指向头结点
+    this.point.next = this.head;
   }
 
   /**
@@ -28,6 +30,7 @@ class LinkList {
   add(value) {
     // 声明一个新结点，设置传入的数据
     const node = new Node(value, null);
+    node.next = this.head;
     // 头结点的 next 指向这个结点
     if (!this.head.next) {
       this.head.next = node;
@@ -56,7 +59,7 @@ class LinkList {
    * @param {List} list 链表对象
    */
   isEmpty() {
-    return this.head.next === null;
+    return this.point.next === this.head;
   }
 
   /**
@@ -66,13 +69,15 @@ class LinkList {
   clear() {
     let head = this.head;
     let point = null;
-    while (head.next) {
+    while (head.next && head.next !== this.head) {
       point = head;
       head = point.next;
       point = null;
     }
     this.head = new Node(0, null);
     this.point = new Node(0, null);
+    // 尾结点指向头结点
+    this.point.next = this.head;
   }
 
   /**
@@ -83,7 +88,7 @@ class LinkList {
   find(x) {
     let head = this.head;
     let point = null;
-    while (head.next) {
+    while (head.next && head.next !== this.head) {
       point = head.next;
       if (point.value === x) {
         return point;
@@ -101,7 +106,8 @@ class LinkList {
   findPrevious(x) {
     let head = this.head;
     let point = null;
-    while (head.next) {
+    // 与单链表的区别 head.next !== this.head)
+    while (head.next && head.next !== this.head) {
       point = head.next;
       if (point.next && point.next.value === x) {
         return point;
@@ -114,11 +120,10 @@ class LinkList {
   /**
    * @description 插入结点
    * @param {*} x  插入的元素
-   * @param {*} value  插入元素的下个结点元素
+   * @param {*} pos 位置
    */
-  insert(x, value) {
-    let point = this.findPrevious(value);
-    console.log('point:', point)
+  insert(x, pos) {
+    let point = this.findPrevious(pos);
     // 找不到，插入最后
     if (!point) {
       this.add(x);
@@ -126,6 +131,7 @@ class LinkList {
     }
     // 创建结点
     const node = new Node(x, null);
+    node.next = this.head;
     const nextNode = point.next;
     node.next = nextNode;
     point.next = node;
@@ -140,7 +146,7 @@ class LinkList {
     if (!debug) return;
     let head = list.head;
     let point;
-    while (head.next) {
+    while (head.next && head.next !== list.head) {
       point = head.next;
       console.log(point.value);
       head = point;
@@ -157,11 +163,11 @@ class LinkList {
     console.log('指针：', point.next);
   }
 
-  const list = new LinkList();
+  const list = new CycleLinkList();
   let p = null;
   console.log('-----------判断是否为空-----------:', list.isEmpty());
   console.log('');
-  console.log('-----------创建单链表----------');
+  console.log('-----------创建循环链表----------');
   console.log(list);
   console.log('');
   list.add(1);
@@ -188,11 +194,13 @@ class LinkList {
   console.log('');
   list.add(4);
   list.add(5);
-  console.log('----------追加2个结点: 1、2、3----------');
+  console.log('----------追加2个结点: 4、5----------');
   console.log('');
   printList(list, true);
   console.log('-----------链表的头结点-----------');
   console.log(list.head);
+  console.log('');
+  console.log('-----------链表的未结点是否等于头结点：', list.point.next === list.head);
   console.log('');
   console.log('-----------判断是否为空-----------:', list.isEmpty());
   console.log('');
@@ -200,7 +208,7 @@ class LinkList {
   list.insert(2, 3);
   printList(list, true);
   console.log('');
-  console.log('在元素1前面插入元素10');
+  console.log('在元素8前面插入元素10');
   list.insert(8, 10);
   printList(list, true);
   console.log('');
