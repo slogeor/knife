@@ -82,8 +82,8 @@ class SingleLinkedList {
    */
   findPrevious(element) {
     let currentNode = this.head;
-    while(currentNode.next && currentNode.next.element !== element) {
-      currentNode =  currentNode.next;
+    while (currentNode.next && currentNode.next.element !== element) {
+      currentNode = currentNode.next;
     }
     return currentNode.next ? currentNode : null;
   }
