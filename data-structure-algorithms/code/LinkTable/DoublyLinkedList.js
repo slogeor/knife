@@ -5,21 +5,24 @@
 class Node {
   constructor(element) {
     this.element = element;
+    // 下一个结点
     this.next = null;
+    // 上一个结点
+    this.previous = null;
   }
 }
 
 /**
- * @description 单链表的插入、删除、查找操作，链表中存储的是 int 类型的数据
+ * @description 双向链表的插入、删除、查找操作，链表中存储的是 int 类型的数据
  */
-class SingleLinkedList {
+class DoublyLinkedList {
   constructor() {
     // 头结点
     this.head = new Node('head');
   }
 
   /**
-   * @description 查询数据 x 的位置
+   * @description 查询数据 element 的位置
    * @param {int} element 结点的值
    * @returns {Node} node
    */
@@ -57,6 +60,7 @@ class SingleLinkedList {
     while (currentNode.next) {
       currentNode = currentNode.next;
     }
+    newNode.previous = currentNode;
     currentNode.next = newNode;
   }
 
@@ -71,8 +75,13 @@ class SingleLinkedList {
     if (!currentNode) return;
     // 核心代码
     const newNode = new Node(newElement);
+
     newNode.next = currentNode.next;
+    newNode.previous = currentNode;
     currentNode.next = newNode;
+    if (newNode.next) {
+      newNode.next.previous = newNode;
+    }
   }
 
   /**
@@ -93,10 +102,13 @@ class SingleLinkedList {
    * @param {int} element
    */
   remove(element) {
-    const prevNode = this.findPrevious(element);
-    if (!prevNode) return;
+    const currentNode = this.findByValue(element);
+    if (!currentNode) return;
     // 核心代码
-    prevNode.next = prevNode.next.next;
+    currentNode.previous.next = currentNode.next;
+    currentNode.next.previous = currentNode.previous;
+    currentNode.next = null;
+    currentNode.previous = null;
   }
 
   /**
@@ -118,34 +130,49 @@ class SingleLinkedList {
       currentNode = currentNode.next;
     }
   }
+
+  printReversedList(len) {
+    // 忽略头指针的值
+    let currentNode = this.findByIndex(2);
+    while (currentNode !== this.head) {
+      console.log(currentNode.element);
+      currentNode = currentNode.previous;
+    }
+  }
 }
 
 /**
  * 测试用例
  */
 (function () {
-  const singleList = new SingleLinkedList();
+  const doublyList = new DoublyLinkedList();
   console.log('-------------test: append------------');
-  singleList.append(10);
-  singleList.append(20);
-  singleList.append(30);
-  singleList.printList(); // 10, 20, 30
+  doublyList.append(10);
+  doublyList.append(20);
+  doublyList.append(30);
+  doublyList.printList(); // 10, 20, 30
   console.log('-------------test: insert------------');
-  singleList.insert(11, 10);
-  singleList.insert(31, 30);
-  singleList.insert(41, 40);
-  singleList.printList(); // 10, 11, 20, 30, 31
+  doublyList.insert(11, 10);
+  doublyList.insert(31, 30);
+  doublyList.insert(41, 40);
+  doublyList.printList(); // 10, 11, 20, 30, 31
   console.log('-------------test: remove------------');
-  singleList.remove(11);
-  singleList.remove(30);
-  singleList.printList(); // 10, 20, 31
+  doublyList.remove(11);
+  doublyList.remove(30);
+  doublyList.printList(); // 10, 20, 31
+  console.log('-------------test: 逆序打印链表------------');
+  doublyList.printReversedList(2); // 31, 20, 10
   console.log('-------------test: findByValue------------');
-  const p = singleList.findByValue(10);
+  const p = doublyList.findByValue(10);
   console.log(p.element); // 10
+  console.log('10 的下一个元素：', p.next.element); // 20
+  console.log('10 的前一个元素：', p.previous.element); // 10
   console.log('-------------test: findByValue------------');
-  const p1 = singleList.findByIndex(2);
+  const p1 = doublyList.findByIndex(2);
   console.log(p1.element); // 31
+  console.log('第二个位置的下一个元素：', p1.next); // null
+  console.log('第二个位置的前一个元素：', p1.previous.element); // 20
   console.log('-------------test: findPrevious------------');
-  const p2 = singleList.findPrevious(31);
+  const p2 = doublyList.findPrevious(31);
   console.log(p2.element); // 20
 }());

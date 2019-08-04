@@ -20,7 +20,7 @@ class CircularLinkList {
   }
 
   /**
-   * @description 查询数据 x 的位置
+   * @description 查询数据 element 的位置
    * @param {int} element 结点的值
    * @returns {Node} node
    */
