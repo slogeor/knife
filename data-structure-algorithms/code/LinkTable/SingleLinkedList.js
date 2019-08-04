@@ -20,7 +20,7 @@ class SingleLinkedList {
 
   /**
    * @description 查询数据 x 的位置
-   * @param {*} element 结点的值
+   * @param {int} element 结点的值
    * @returns {Node} node
    */
   findByValue(element) {
@@ -44,7 +44,6 @@ class SingleLinkedList {
       currentNode = currentNode.next;
     }
     return currentNode;
-
   }
 
   /**
@@ -54,6 +53,7 @@ class SingleLinkedList {
   append(element) {
     const newNode = new Node(element);
     let currentNode = this.head;
+    // 查找最后一个结点
     while (currentNode.next) {
       currentNode = currentNode.next;
     }
@@ -62,12 +62,14 @@ class SingleLinkedList {
 
   /**
    * @description 指定元素向后插入
-   * @param {*} newElement 插入的元素
-   * @param {*} element  插入元素的下个结点元素
+   * @param {int} newElement 插入的元素
+   * @param {int} element  插入元素的下个结点元素
    */
   insert(newElement, element) {
     const currentNode = this.findByValue(element);
+    // 不存在，直接返回
     if (!currentNode) return;
+    // 核心代码
     const newNode = new Node(newElement);
     newNode.next = currentNode.next;
     currentNode.next = newNode;
@@ -93,6 +95,7 @@ class SingleLinkedList {
   remove(element) {
     const prevNode = this.findPrevious(element);
     if (!prevNode) return;
+    // 核心代码
     prevNode.next = prevNode.next.next;
   }
 
