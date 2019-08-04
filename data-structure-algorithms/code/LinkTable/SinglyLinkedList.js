@@ -10,13 +10,12 @@ class Node {
 }
 
 /**
- * @description 循环链表的插入、删除、查找操作，链表中存储的是 int 类型的数据
+ * @description 单链表的插入、删除、查找操作，链表中存储的是 int 类型的数据
  */
-class CycleLinkList {
+class SinglyLinkedList {
   constructor() {
+    // 头结点
     this.head = new Node('head');
-    // 与单链表的区别
-    this.head.next = this.head;
   }
 
   /**
@@ -26,12 +25,10 @@ class CycleLinkList {
    */
   findByValue(element) {
     let currentNode = this.head.next;
-    // 单链表的判断: currentNode !== null
-    // 循环链表的判断: currentNode !== this.head
-    while (currentNode !== this.head && currentNode.element !== element) {
+    while (currentNode && currentNode.element !== element) {
       currentNode = currentNode.next;
     }
-    return currentNode === this.head ? null : currentNode;
+    return currentNode;
   }
 
   /**
@@ -42,13 +39,11 @@ class CycleLinkList {
   findByIndex(index) {
     let currentNode = this.head.next;
     let pos = 0;
-    // 单链表的判断: currentNode !== null
-    // 循环链表的判断: currentNode !== this.head
-    while (currentNode !== this.head && pos !== index) {
+    while (currentNode && pos !== index) {
       pos++;
       currentNode = currentNode.next;
     }
-    return currentNode === this.head ? null : currentNode;
+    return currentNode;
   }
 
   /**
@@ -57,14 +52,9 @@ class CycleLinkList {
    */
   append(element) {
     const newNode = new Node(element);
-    // 与单链表的区别: newNode.next = this.head;
-    newNode.next = this.head;
-
     let currentNode = this.head;
     // 查找最后一个结点
-    // 单链表的判断: currentNode.next !== null
-    // 循环链表的判断: currentNode.next !== this.head
-    while (currentNode.next !== this.head) {
+    while (currentNode.next) {
       currentNode = currentNode.next;
     }
     currentNode.next = newNode;
@@ -92,12 +82,10 @@ class CycleLinkList {
    */
   findPrevious(element) {
     let currentNode = this.head;
-    // 单链表的判断: currentNode.next !== null
-    // 循环链表的判断: currentNode.next !== this.head
-    while (currentNode.next !== this.head && currentNode.next.element !== element) {
+    while (currentNode.next && currentNode.next.element !== element) {
       currentNode = currentNode.next;
     }
-    return currentNode.next !== this.head ? currentNode : null;
+    return currentNode.next ? currentNode : null;
   }
 
   /**
@@ -116,7 +104,7 @@ class CycleLinkList {
    * @returns Boolean
    */
   isEmpty() {
-    return this.head.next === this.head;
+    return this.head.next === null;
   }
 
   /**
@@ -125,9 +113,7 @@ class CycleLinkList {
   printList() {
     // 忽略头指针的值
     let currentNode = this.head.next;
-    // 单链表的判断: currentNode !== null
-    // 循环链表的判断: currentNode !== this.head
-    while (currentNode !== this.head) {
+    while (currentNode) {
       console.log(currentNode.element);
       currentNode = currentNode.next;
     }
@@ -138,28 +124,28 @@ class CycleLinkList {
  * 测试用例
  */
 (function () {
-  const cycleList = new CycleLinkList();
+  const singlyList = new SinglyLinkedList();
   console.log('-------------test: append------------');
-  cycleList.append(10);
-  cycleList.append(20);
-  cycleList.append(30);
-  cycleList.printList(); // 10, 20, 30
+  singlyList.append(10);
+  singlyList.append(20);
+  singlyList.append(30);
+  singlyList.printList(); // 10, 20, 30
   console.log('-------------test: insert------------');
-  cycleList.insert(11, 10);
-  cycleList.insert(31, 30);
-  cycleList.insert(41, 40);
-  cycleList.printList(); // 10, 11, 20, 30, 31
+  singlyList.insert(11, 10);
+  singlyList.insert(31, 30);
+  singlyList.insert(41, 40);
+  singlyList.printList(); // 10, 11, 20, 30, 31
   console.log('-------------test: remove------------');
-  cycleList.remove(11);
-  cycleList.remove(30);
-  cycleList.printList(); // 10, 20, 31
+  singlyList.remove(11);
+  singlyList.remove(30);
+  singlyList.printList(); // 10, 20, 31
   console.log('-------------test: findByValue------------');
-  const p = cycleList.findByValue(10);
+  const p = singlyList.findByValue(10);
   console.log(p.element); // 10
   console.log('-------------test: findByValue------------');
-  const p1 = cycleList.findByIndex(2);
+  const p1 = singlyList.findByIndex(2);
   console.log(p1.element); // 31
   console.log('-------------test: findPrevious------------');
-  const p2 = cycleList.findPrevious(31);
+  const p2 = singlyList.findPrevious(31);
   console.log(p2.element); // 20
 }());
