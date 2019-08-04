@@ -4,7 +4,8 @@
   "description": "大杂烩",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git  push https://github.com/slogeor/knife.git"
   },
   "author": "",
   "license": "ISC"

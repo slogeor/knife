@@ -1,10 +1,12 @@
 ### 单链表
 
 #### 思路
-- 构造一个 Node 类: 有两个属性 value 和 next，value 存放元素，next 存在下一个结点，默认是 null
-- 构造一个链表类: 有两个属性，header 结点和 pointer 结点，header 结点指向永远指向链表的头结点，pointer 指向链表的尾节点
-- 链表操作方法实现原则: 先画图，梳思路，后编码
-- 边界条件: 插入操作考虑头结点，删除操作考虑尾结点
+- 构造两个类型: Node 和 SingleLinkedList
+- Node 类只有两个属性: element 和 next，element 存放结点的值，next 指向下一个结点
+- SingleLinkedList 类只有一个属性: head 结点，指向链表的头结点
+- SingleLinkedList 类有三个核心操作: 插入(insert、append)、查询(remove)、删除(findByValue、findByIndex、findPrevious)
+- 单链表遍历的条件: currentNode.next !== null
 
 #### 代码实现
-- [单链表代码实现](./LinkList.js)
+- [单链表代码实现](./SingleLinkedList.js)
+
