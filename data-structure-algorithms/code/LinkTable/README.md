@@ -1,5 +1,4 @@
 ### 单链表
-
 #### 思路
 - 构造两个类: Node 和 SingleLinkedList
 - Node 类只有两个属性: element 和 next，element 存放结点的值，next 指向下一个结点
@@ -11,8 +10,7 @@
 - [单链表代码实现](./SingleLinkedList.js)
 
 ### 循环链表
-
-### 与单链表的主要区别
+#### 与单链表的主要区别
 - 主包区别: 循环链表最后一个结点的 next 指向了头结点 this.head
 - 初始化: 单链表是 this.head.next = null; 循环链表是 this.head.next = this.head;
 - 链表遍历的条件: 单链表是 currentNode.next !== null 或者 currentNode !== null; 循环链表是  currentNode.next !== this.head 或者 currentNode !== this.head;
