@@ -16,6 +16,23 @@
 - 时间复杂度：O(n)，假设 n 是列表的长度
 - 空间复杂度：O(1)
 
+#### 方案2: 递归法
+其关键在于反向工作，假设列表的其余部分已经被反转，现在该如何反转它前面的部分？若从节点 n{k+1} 到 n{m} 已经反转，而我们正处于 n{k}，希望 n{k+1} 的下一个节指向 n{k}，所以，n{k}.next.next = n{k}
+​
+```js
+public ListNode reverseList(ListNode head) {
+    if (head == null || head.next == null) return head;
+    ListNode p = reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p;
+}
+```
+
+复杂度分析
+- 时间复杂度：O(n)，假设 n 是列表的长度
+- 空间复杂度：O(n)，由于使用递归，将会使用隐式栈空间。递归深度可能会达到 n 层
+
 #### code
 [JavaScript: reverse-linked-list](../code/JavaScript/reverse-linked-list.js)
 
