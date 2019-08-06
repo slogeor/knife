@@ -7,12 +7,12 @@
 输出: 5->4->3->2->1->NULL
 ```
 
-#### 思路
+#### 方案1
 假设存在链表(非头的单链表) 1 → 2 → 3 → Ø，我们想要把它改成 Ø ← 1 ← 2 ← 3。
 
 在遍历列表时，将当前节点的 next 指针改为指向前一个元素。由于节点没有引用其上一个节点，因此必须事先存储其前一个元素。在更改引用之前，还需要另一个指针来存储下一个节点。不要忘记在最后返回新的头引用！
 
-#### 时间复杂度分析
+时间复杂度分析
 - 时间复杂度：O(n)，假设 n 是列表的长度
 - 空间复杂度：O(1)
 
@@ -21,11 +21,11 @@
 ​
 ```js
 public ListNode reverseList(ListNode head) {
-    if (head == null || head.next == null) return head;
-    ListNode p = reverseList(head.next);
-    head.next.next = head;
-    head.next = null;
-    return p;
+  if (head == null || head.next == null) return head;
+  ListNode p = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return p;
 }
 ```
 
