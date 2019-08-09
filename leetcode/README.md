@@ -7,3 +7,4 @@
 - [简单: 反转链表](./doc/reverse-linked-list.md)
 - [简单: 环形链表](./doc/linked-list-cycle.md)
 - [简单: 合并两个有序链表](./doc/merge-two-sorted-lists.md)
+- [中等: 删除链表的倒数第N个节点](./doc/remove-nth-node-from-end-of-list.md)
