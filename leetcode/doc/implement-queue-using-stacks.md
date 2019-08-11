@@ -22,7 +22,7 @@ queue.empty(); // 返回 false
 - 假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）
 
 #### 方案
-利用两个栈来时间，思路与用队列实现栈类似[implement-stack-using-queues](../doc/implement-stack-using-queues.md)。
+利用两个栈来时间，思路与用队列实现栈类似 [点我查看](../doc/implement-stack-using-queues.md)。
 
 
 #### code
