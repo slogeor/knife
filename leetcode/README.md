@@ -13,3 +13,4 @@
 - [简单: (0020)有效的括号](./doc/valid-parentheses.md)
 - [简单: (0155)最小栈](./doc/min-stack.md)
 - [简单: (0255)用队列实现栈](./doc/implement-stack-using-queues.md)
+- [简单: (0232)用栈实现队列](./doc/mplement-queue-using-stacks.md)
