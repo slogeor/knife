@@ -33,7 +33,19 @@ circularQueue.Rear();  // 返回 4
 - 请不要使用内置的队列库
 
 #### 方案:
+- 定义四个属性，head 指向队头、tail 指向队尾(队列最后一个元素的下一个空位)、queue 存放数据、size 队列长度，一般是长度 + 1
+- 入队操作: this.tail = (this.tail + 1) % this.size;
+- 出队操作: this.head = (this.head + 1) % this.size;
+- 队空判断: this.tail === this.head
+- 队满判断: (this.tail + 1) % this.size === this.head
+- 取队尾数据: this.queue[(this.size + this.tail - 1) % this.size]
+- 取队头元素: this.queue[this.head % this.size]
 
+复杂度分析
+- 入队操作时间复杂度: O(1)
+- 入队操作空间复杂度: O(1)
+- 出队操作时间复杂度: O(1)
+- 出队操作空间复杂度: O(1)
 
 #### code
 [JavaScript: design-circular-queue](../code/JavaScript/design-circular-queue.js)
