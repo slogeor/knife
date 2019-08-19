@@ -1,5 +1,5 @@
 /**
- * 冒泡排序
+ * @description 冒泡排序
  * @param {Array} arr
  * @returns {Array} res
  */
@@ -39,11 +39,11 @@ console.log('结果: ', bubbleSort([9, 8, 7, 6, 5, 4, 3, 2, 1]));
 console.log();
 
 console.log('原始数据 [1, 2, 3, 4, 5, 6, 7, 8, 9]');
-console.log('结果: ',bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log('结果: ', bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 // 交换次数: 0
 console.log();
 
 console.log('原始数据 [1, 4, 3, 2, 9, 6, 7, 5, 8]');
-console.log('结果: ',bubbleSort([1, 4, 3, 2, 9, 6, 7, 5, 8]));
+console.log('结果: ', bubbleSort([1, 4, 3, 2, 9, 6, 7, 5, 8]));
 // 交换次数: 9
 console.log();
