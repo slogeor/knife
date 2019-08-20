@@ -4,7 +4,7 @@
 
 #### 数据结构: 数组、字符串
 - [简单: (0001)两数之和](./doc/two-sum.md)
-- [简单: (0003)无重复字符的最长子串](./doc/longest-substring-without-repeating-characters.md)
+- [中等: (0003)无重复字符的最长子串](./doc/longest-substring-without-repeating-characters.md)
 
 #### 数据结构: 链表
 - [简单: (0206)反转链表](./doc/reverse-linked-list.md)

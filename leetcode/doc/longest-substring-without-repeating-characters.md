@@ -19,11 +19,16 @@
 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 ```
 
-#### 方案
+#### 方案：借助哈希表
+可以转换为求从索引 i 到 j - 1 之间的子串长度，这里有个前提条件，就是索引 j 位置的元素存在 i 到 j - 1 之间的子串中(这个判断可以借助哈希表，能在 O(1)时间复杂度完成)。
+
+假设索引 j 位置的元素存在 i 到 j - 1 之间的子串中 索引为 k (i <= k；k <= j-1) 的位置，下一个子串开始的位置则为 k + 1
+
+依次类推，遍历完字符串
 
 复杂度度分析
-- 时间复杂度:
-- 空间复杂度:
+- 时间复杂度: O(n) n 是字符串长度
+- 空间复杂度: O(min(m,n))，n 是字符串长度，m 是最长子串的长度
 
 #### code
 [JavaScript: longest-substring-without-repeating-characters](../code/JavaScript/longest-substring-without-repeating-characters.js)
