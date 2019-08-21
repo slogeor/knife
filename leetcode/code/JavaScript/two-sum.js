@@ -13,16 +13,22 @@ var twoSum = function (nums, target) {
   if (!nums || nums.length === 0) return [];
 
   var start = 0;
-  var end = nums.length;
+  var end = nums.length - 1;
 
   // 异常判断
-  if (nums[end] * 2 < target || nums[start] * 2 > target) return [];
+  if ((nums[end] * 2) < target || (nums[start] * 2) > target) return [];
 
-  while (end - start > 1) {
-    if (nums[start] + nums[end] > target) {
+  while ((end - start) > 1) {
+    if ((nums[start] + nums[end]) > target) {
+      // 保证 end 合法
+      if (end === 0) break;
       end--;
-    } else if (nums[start] + nums[end] < target) {
+    } else if ((nums[start] + nums[end]) < target) {
+      // 保证 start 合法
+      if (start === nums.length - 1) break;
       start++
+    } else {
+      break;
     }
   }
 
@@ -38,8 +44,9 @@ var twoSum = function (nums, target) {
 var twoSum = function (nums, target) {
   // 空判断
   if (!nums || nums.length === 0) return [];
+
   var helper = new Map();
-  // 第一次遍历，存储value 和 i
+  // 第一次遍历，存储 value 和 index
   for (var i = 0; i < nums.length; i++) {
     helper.set(nums[i], i);
   }

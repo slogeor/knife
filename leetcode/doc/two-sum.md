@@ -11,14 +11,14 @@
 所以返回 [0, 1]
 ```
 
-#### 方案1: 使用有序数组，从头(head)和尾(tail)向中间遍历
-- 循环终止的条件: tail - head === 1
-- 如果 nums[tail] + nums[head] > target，tail--
-- 如果 nums[tail] + nums[head] < target，head++
-- 循环结束后，如果 nums[start] + nums[end] === target， 返回[start, end]，否则 []
+#### 方案1: 使用有序数组，从头(start)和尾(end)向中间遍历
+- 循环终止的条件: end - start === 1 （前提是end 和 start 都合法）
+- 如果 nums[end] + nums[start] > target，tail--
+- 如果 nums[end] + nums[start] < target，head++
+- 循环结束后，如果 nums[start] + start[end] === target， 返回[start, end]，否则 []
 
 复杂度度分析
-- 时间复杂度: O(n)
+- 平均时间复杂度: O(n)
 - 空间复杂度: O(1)
 
 #### 方案2: 借助哈希，2次遍历，使用任何场景
@@ -26,7 +26,7 @@
 - 第二次遍历，判断target - nums[i] 是否在 helper 里，如有，返回(需要判断2个下标不能相同)
 
 复杂度度分析
-- 时间复杂度: O(n)
+- 平均时间复杂度: O(n)
 - 空间复杂度: O(n)
 
 #### 方案3:  借助哈希，1次遍历，使用任何场景
@@ -34,7 +34,7 @@
 - 如果不在，更新helper，如果在返回索引
 
 复杂度度分析
-- 时间复杂度: O(n)
+- 平均时间复杂度: O(n)
 - 空间复杂度: O(n)
 
 #### code
