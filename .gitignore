@@ -43,3 +43,4 @@ bundle/
 .eslintcache
 .vscode
 package-lock.json
+demo.md
