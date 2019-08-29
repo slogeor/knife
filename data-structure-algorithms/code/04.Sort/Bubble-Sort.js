@@ -1,7 +1,7 @@
 /**
  * @description 冒泡排序
  * @param {Array} arr
- * @returns {Array} res
+ * @returns {Array} arr
  */
 function bubbleSort(arr = []) {
   // 空判断
@@ -11,7 +11,7 @@ function bubbleSort(arr = []) {
   let count = 0;
 
   for (let i = 0; i < len; i++) {
-    // 记录是否有交互
+    // 记录是否有交换
     let hasChange = false;
     for (let j = 0; j < len - i; j++) {
       if (arr[j] > arr[j + 1]) {

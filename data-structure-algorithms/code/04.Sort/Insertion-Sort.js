@@ -1,7 +1,7 @@
 /**
  * @description 插入排序
  * @param {Array} arr
- * @returns {Array} res
+ * @returns {Array} arr
  */
 function insertionSort(arr = []) {
   // 边界判断

@@ -1,7 +1,7 @@
 /**
  * @description 选择排序
  * @param {Array} arr
- * @returns {Array} res;
+ * @returns {Array} arr;
  */
 function selectionSort(arr = []) {
   // 边界判断
