@@ -44,3 +44,4 @@ bundle/
 .vscode
 package-lock.json
 demo.md
+*.zip

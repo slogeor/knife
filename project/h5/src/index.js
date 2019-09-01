@@ -32,42 +32,42 @@ $(function () {
     param.skinColor = $('#skinColor').val();
 
     if (!trim(param.continent)) {
-      alert('所属大洲不能为空');
+      alert('continent is null');
       return false;
     }
 
     if (!trim(param.national)) {
-      alert('国家不能为空');
+      alert('national is null');
       return false;
     }
 
     if (!trim(param.name)) {
-      alert('姓名不能为空');
+      alert('name is null');
       return false;
     }
 
     if (!trim(param.phoneNum)) {
-      alert('手机号不能为空');
+      alert('phoneNum is null');
       return false;
     }
 
     if (!trim(param.gender)) {
-      alert('性別不能为空');
+      alert('gender is null');
       return false;
     }
 
     if (!trim(param.age)) {
-      alert('年龄不能为空');
+      alert('age is null');
       return false;
     }
 
     if (!trim(param.skinColor)) {
-      alert('肤色不能为空');
+      alert('skinColor is null');
       return false;
     }
 
     if (!param.file) {
-      alert('图片不能为空');
+      alert('supload pic is null');
       return false;
     }
 
@@ -145,7 +145,7 @@ $(function () {
         ...param,
       },
       success: function (jsonResult) {
-        alert('报名成功');
+        alert('Sign up success');
         console.log('success');
         $('#form-wrap').hide();
       },
