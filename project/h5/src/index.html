@@ -15,7 +15,7 @@
       <script src="./lib/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-    // !function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/3.75;n.style.fontSize=e+"px"}if(function e(){t.body?t.body.style.fontSize="16px":t.addEventListener("DOMContentLoaded",e)}(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),2<=d){var o=t.createElement("body"),a=t.createElement("div");a.style.border=".5px solid transparent",o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}}(window,document)
+    !function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/3.75;n.style.fontSize=e+"px"}if(function e(){t.body?t.body.style.fontSize="16px":t.addEventListener("DOMContentLoaded",e)}(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),2<=d){var o=t.createElement("body"),a=t.createElement("div");a.style.border=".5px solid transparent",o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}}(window,document)
     </script>
     <link href="./index.css?v1" rel="stylesheet">
 
@@ -28,7 +28,6 @@
 
       <div class="head">
         <img class="head-img" src="./image/head.jpg" />
-        <!-- <span class="head-txt">We need you!</span> -->
       </div>
       <div class="main">
         <div class="part">
@@ -78,17 +77,41 @@
             <span>We need you very much. Regardless of your race and gender, we need you to be different. You have traces of the development of human history, left behind, spread down.</span>
           </p>
         </div>
+        <div class="part">
+          <p class="cont">
+            <span style="color:#2196f38f;font-style: italic;">Volunteers who have been collected，what they have to say——</span>
+          </p>
+        </div>
+        <div class="part">
+          <p class="cont">
+            <span>Please fill in the following form. We will contact with you ASAP when your face character match the requirement.</span>
+          </p>
+          <div class="image-wrap">
+            <img src="./image/01.png" class="img" />
+          </div>
+          <div class="author"> <span>Thomas (USA)</span></div>
+        </div>
+        <div class="part marginTop20">
+          <div class="image-wrap">
+            <img src="./image/02.png" class="img" />
+          </div>
+          <div class="image-wrap" style="margin-top: 20px">
+            <img src="./image/03.png" class="img" />
+          </div>
+          <div class="author"> <span>Worsford Mwansa Katengo J （Zambia）</span></div>
+        </div>
+        <div class="part marginTop20">
+          <div class="image-wrap">
+            <img src="./image/04.png" class="img" />
+          </div>
+          <div class="author"> <span>MAVI （German）</span></div>
+        </div>
         <div class="part" id="join-wrap">
           <div class="cont">
             <strong>
               <span>Click&nbsp;</span><span class="join" id="join"><a href="javascript:void(0)">HERE&nbsp;</a></span>To be volunteer</span>
             </strong>
           </div>
-        </div>
-        <div class="part">
-          <p class="cont">
-            <span>Please fill in the following form. We will contact with you ASAP when your face character match the requirement.</span>
-          </p>
         </div>
         <div class="part">
           <p class="cont">
@@ -170,7 +193,7 @@
               <span class="col-sm-2 control-label" style="font-weight: 700">supload pic</span>
               <div class="col-sm-10">
                 <label for="file" class="btn btn-default">upload</label>
-                <input type="file" id="file" class="hide">
+                <input type="file" id="file" class="hide" accept="image/*" >
                  <input type="hidden" id="fileVal">
               </div>
             </div>
@@ -189,11 +212,21 @@
         <div>address: 26 Floors, Fortune Financial Center, No. 5 Dongsanhuan Middle Road, Chaoyang District, Beijing, China</div>
         <div>Postcode: 100020</div>
       </div>
+      <div class="msg" id="err-msg" style="display: none">
+        <div class="msg-wrap">
+          <div class="alert alert-danger">
+            <button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+            <strong id="msg-txt"></strong>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="./lib/1.12.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="./lib/3.7.3/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.8/eruda.js"></script>
+    <script>eruda.init();</script>
     <script src="./index.js?v1"></script>
   </body>
 </html>

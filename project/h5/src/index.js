@@ -15,7 +15,7 @@ $(function () {
   }
 
   // 表单校验
-  function valid () {
+  function valid() {
     // 所属大洲
     param.continent = $('#continent').val();
     // 国家
@@ -32,42 +32,42 @@ $(function () {
     param.skinColor = $('#skinColor').val();
 
     if (!trim(param.continent)) {
-      alert('continent is null');
+      showMsg('continent is null');
       return false;
     }
 
     if (!trim(param.national)) {
-      alert('national is null');
+      showMsg('national is null');
       return false;
     }
 
     if (!trim(param.name)) {
-      alert('name is null');
+      showMsg('name is null');
       return false;
     }
 
     if (!trim(param.phoneNum)) {
-      alert('phoneNum is null');
+      showMsg('phoneNum is null');
       return false;
     }
 
     if (!trim(param.gender)) {
-      alert('gender is null');
+      showMsg('gender is null');
       return false;
     }
 
     if (!trim(param.age)) {
-      alert('age is null');
+      showMsg('age is null');
       return false;
     }
 
     if (!trim(param.skinColor)) {
-      alert('skinColor is null');
+      showMsg('skinColor is null');
       return false;
     }
 
     if (!param.file) {
-      alert('supload pic is null');
+      showMsg('supload pic is null');
       return false;
     }
 
@@ -76,26 +76,29 @@ $(function () {
 
   // 上传并预览图片
   function chooseImage(fileid, imgid, fileValId) {
+
     var fileObj = document.getElementById(fileid);
     if (typeof (fileObj) == "undefined" || fileObj.files.length == 0) {
-       console.log('file ' + fileid + ' not exists');
-       return;
+      console.log('file ' + fileid + ' not exists');
+      return;
     }
+    console.log(fileObj.files[0])
     var file = fileObj.files[0];
     var fileType = file.type;
     var fileSize = file.size;
 
-    var FILE_TYPE_MAP = ['image/jpeg', 'image/jpg','image/png', 'image/pjpeg'];
-
+    console.log('fileType:', fileType)
+    console.log('fileSize:', fileSize)
+    var FILE_TYPE_MAP = ['image/jpeg', 'image/jpg', 'image/png', 'image/pjpeg'];
     // 文件格式检验
     if (FILE_TYPE_MAP.indexOf(fileType) === -1) {
-      alert('文件格式不对，只支持格式 jpeg、png、jpg');
+      showMsg('the file format is wrong，Only supports the format jpeg、png、jpg');
       return;
     }
 
     // 文件大小限制
-    if (fileSize > 1 * 1024 *1024) {
-      alert('文件大小超过限制，最大不要超过1M');
+    if (fileSize > (1 * 1024 * 1024)) {
+      showMsg('file size over limit, maximum not more than 1 M');
       return;
     }
 
@@ -103,7 +106,7 @@ $(function () {
     reader.readAsDataURL(file);
     reader.onload = function (e) {
       var imgResult = e.target.result;
-      console.log(imgResult);
+      // console.log(imgResult);
       var imgObj = document.getElementById(imgid);
       if (typeof (imgObj) != 'undefined') {
         imgObj.setAttribute('src', imgResult);
@@ -120,37 +123,52 @@ $(function () {
   // 监听文件变化
   $('#file').on('change', function () {
     chooseImage('file', 'photo', 'fileVal');
+    $('#file').val('') // 注意1
   });
 
+  function showMsg(msg) {
+    console.log(msg)
+    $('#err-msg').removeClass('autoHide').addClass('autoShow');
+    $('#msg-txt').html(msg);
+  }
+
+  function hideMsg() {
+    $('#err-msg').addClass('autoHide').removeClass('autoShow');
+  }
+
+  $('#err-msg').on('click', function () {
+    hideMsg();
+  })
+
   // 加入
-  $('#join').on('click', function() {
+  $('#join').on('click', function () {
     $('#join-wrap').hide();
     $('#form-wrap').removeClass('hide');
   });
 
   // 提交表单
-  $('#submit').on('click', function() {
+  $('#submit').on('click', function () {
     // $.get('http://39.97.167.25:8080/photo/test?test=111', function(result){
-    //   console.log(result);
+    //   console.log(result)
     // });
     if (!valid()) return;
 
     $.ajax({
-      type:'POST',
+      type: 'POST',
       url: 'http://39.97.167.25:8080/photo/manager',
-      type:'post',
-      cache:false,
-      dataType:'json',
+      type: 'post',
+      cache: false,
+      dataType: 'json',
       data: {
         ...param,
       },
       success: function (jsonResult) {
-        alert('Sign up success');
+        showMsg('Sign up success');
         console.log('success');
         $('#form-wrap').hide();
       },
-      error: function (data){
-        // alert('');
+      error: function (data) {
+        // showMsg('');
       }
     });
     // console.log(param);
