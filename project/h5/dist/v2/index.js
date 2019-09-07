@@ -131,7 +131,7 @@ $(function () {
     $('#msg-txt').html(msg);
     setTimeout(() => {
       hideMsg();
-    }, 20000)
+    }, 1000)
   }
 
   function hideMsg() {
