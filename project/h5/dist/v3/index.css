@@ -141,12 +141,3 @@
   opacity: 1 !important;
   color: #fff !important;
 }
-
-.required {
-  color: #f00;
-  position: absolute;
-  top: 2px
-}
-.form-group label {
-  position: relative;
-}
