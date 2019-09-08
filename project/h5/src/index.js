@@ -183,8 +183,8 @@ $(function () {
   window.wxConfig.init();
 
   window.wxConfig.wxShareConfig({
-    title: 'We need you!',
-    desc: 'We have moved into a Digital Human Society',
+    title: 'WE NEED YOU！',
+    desc: 'FR volunteer, waiting for you.',
     link: window.location.href.split('#')[0],
     imgUrl: 'http://photo.qingfeichina.com/image/frc.jpg',
     onSuccess: function() {
