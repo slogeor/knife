@@ -155,6 +155,7 @@ $(function () {
     // });
     if (!valid()) return;
 
+    // $('#loading').show();
     $.ajax({
       type: 'POST',
       url: 'http://39.97.167.25:80/photo/manager',
@@ -165,6 +166,7 @@ $(function () {
         ...param,
       },
       success: function (jsonResult) {
+        // $('#loading').hide();
         if (jsonResult.ret) {
           showMsg('Successful submission');
           console.log('success');
@@ -174,6 +176,7 @@ $(function () {
         showMsg(jsonResult.msg);
       },
       error: function (data) {
+        // $('#loading').hide();
         showMsg(data.msg);
       }
     });
