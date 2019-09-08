@@ -170,7 +170,7 @@ $(function () {
         $('#form-wrap').hide();
       },
       error: function (data) {
-        // showMsg('');
+        showMsg(data.msg);
       }
     });
     // console.log(param);

@@ -17,7 +17,7 @@
     <script>
     !function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/3.75;n.style.fontSize=e+"px"}if(function e(){t.body?t.body.style.fontSize="16px":t.addEventListener("DOMContentLoaded",e)}(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),2<=d){var o=t.createElement("body"),a=t.createElement("div");a.style.border=".5px solid transparent",o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}}(window,document)
     </script>
-    <link href="./index.css?v1" rel="stylesheet">
+    <link href="./index.css?v2" rel="stylesheet">
 
   </head>
   <body>
@@ -87,7 +87,6 @@
             <span>Please fill in the following form. We will contact with you ASAP when your face character match the requirement.</span>
           </p>
           <div class="image-wrap">
-              <!-- <img src="./image/demo.png" class="img" /> -->
             <img src="./image/01.png" class="img" />
           </div>
           <div class="author"> <span>Thomas (USA)</span></div>
@@ -130,7 +129,8 @@
           <form class="form-horizontal" onsubmit="return false" >
             <!-- 所属大洲 -->
             <div class="form-group">
-              <label for="continent" class="col-sm-2 control-label">Continental</label>
+              <label for="continent" class="col-sm-2 control-label">Continental<span class="required">*</span>
+              </label>
               <div class="col-sm-10">
                 <select id="continent" class="form-control">
                   <option value="亚洲">Asia</option>
@@ -144,28 +144,32 @@
             </div>
             <!-- 国家 -->
             <div class="form-group">
-              <label for="national" class="col-sm-2 control-label">Nationality</label>
+              <label for="national" class="col-sm-2 control-label">Nationality<span class="required">*</span>
+              </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="national" placeholder="Nationality" />
               </div>
             </div>
             <!-- 姓名 -->
             <div class="form-group">
-              <label for="name" class="col-sm-2 control-label">name</label>
+              <label for="name" class="col-sm-2 control-label">name<span class="required">*</span>
+              </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="name" placeholder="name" />
               </div>
             </div>
             <!-- 电话 -->
             <div class="form-group">
-              <label for="phoneNum" class="col-sm-2 control-label">contact num</label>
+              <label for="phoneNum" class="col-sm-2 control-label">contact num<span class="required">*</span>
+              </label>
               <div class="col-sm-10">
                 <input type="tel" class="form-control" id="phoneNum" placeholder="contact num" />
               </div>
             </div>
             <!-- 性別 -->
             <div class="form-group">
-              <label for="gender" class="col-sm-2 control-label">gentle</label>
+              <label for="gender" class="col-sm-2 control-label">gentle<span class="required">*</span>
+              </label>
               <div class="col-sm-10" id="gender" >
                 <div>
                   <input type="radio" name="gender" value="0" checked id="gender1">
@@ -179,21 +183,24 @@
             </div>
             <!-- 年龄 -->
             <div class="form-group">
-              <label for="age" class="col-sm-2 control-label">age</label>
+              <label for="age" class="col-sm-2 control-label">age<span class="required">*</span>
+              </label>
               <div class="col-sm-10">
                 <input type="tel" class="form-control" id="age" placeholder="age" />
               </div>
             </div>
             <!-- 肤色 -->
             <div class="form-group">
-              <label for="skinColor" class="col-sm-2 control-label">skin color</label>
+              <label for="skinColor" class="col-sm-2 control-label">skin color<span class="required">*</span>
+              </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="skinColor" placeholder="skin color" />
               </div>
             </div>
             <!-- 照片 -->
             <div class="form-group">
-              <span class="col-sm-2 control-label" style="font-weight: 700">supload pic</span>
+              <span class="col-sm-2 control-label" style="font-weight: 700">Upload the pic from front view<span class="required">*</span>
+              </span>
               <div class="col-sm-10">
                 <label for="file" class="btn btn-default">upload</label>
                 <input type="file" id="file" class="hide" accept="image/*" >
@@ -218,6 +225,7 @@
       <div class="msg" id="err-msg" style="display:none;">
         <div class="msg-wrap">
           <div class="alert alert-danger">
+            <button type="button" class="close"><span aria-hidden="true">&times;</span></button>
             <strong id="msg-txt"></strong>
           </div>
         </div>
@@ -227,8 +235,8 @@
     <script src="./lib/1.12.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="./lib/3.7.3/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.8/eruda.js"></script>
-    <script>eruda.init();</script>
-    <script src="./index.js?v1"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.8/eruda.js"></script> -->
+    <!-- <script>eruda.init();</script> -->
+    <script src="./index.js?v2"></script>
   </body>
 </html>

@@ -32,45 +32,44 @@ $(function () {
     param.skinColor = $('#skinColor').val();
 
     if (!trim(param.continent)) {
-      showMsg('continent is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!trim(param.national)) {
-      showMsg('national is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!trim(param.name)) {
-      showMsg('name is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!trim(param.phoneNum)) {
-      showMsg('phoneNum is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!trim(param.gender)) {
-      showMsg('gender is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!trim(param.age)) {
-      showMsg('age is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!trim(param.skinColor)) {
-      showMsg('skinColor is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
 
     if (!param.file) {
-      showMsg('supload pic is null');
+      showMsg('Required field（*） cannot be empty');
       return false;
     }
-
     return true;
   };
 
@@ -92,13 +91,13 @@ $(function () {
     var FILE_TYPE_MAP = ['image/jpeg', 'image/jpg', 'image/png', 'image/pjpeg'];
     // 文件格式检验
     if (FILE_TYPE_MAP.indexOf(fileType) === -1) {
-      showMsg('the file format is wrong，Only supports the format jpeg、png、jpg');
+      showMsg('File format error，Only supports the format jpeg、png、jpg.');
       return;
     }
 
     // 文件大小限制
     if (fileSize > (1 * 1024 * 1024)) {
-      showMsg('file size over limit, maximum not more than 1 M');
+      showMsg('Upload file (<1M)');
       return;
     }
 
@@ -123,15 +122,16 @@ $(function () {
   // 监听文件变化
   $('#file').on('change', function () {
     chooseImage('file', 'photo', 'fileVal');
-    $('#file').val('') // 注意1
+    $('#file').val('');
   });
 
   function showMsg(msg) {
     $('#err-msg').removeClass('autoHide').addClass('autoShow');
     $('#msg-txt').html(msg);
     setTimeout(() => {
+      console.log(11)
       hideMsg();
-    }, 20000)
+    }, 3000)
   }
 
   function hideMsg() {
@@ -165,7 +165,7 @@ $(function () {
         ...param,
       },
       success: function (jsonResult) {
-        showMsg('Sign up success');
+        showMsg('Successful submission');
         console.log('success');
         $('#form-wrap').hide();
       },
