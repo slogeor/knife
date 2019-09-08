@@ -150,14 +150,14 @@ $(function () {
 
   // 提交表单
   $('#submit').on('click', function () {
-    // $.get('http://39.97.167.25:8080/photo/test?test=111', function(result){
+    // $.get('http://39.97.167.25:80/photo/test?test=111', function(result){
     //   console.log(result)
     // });
     if (!valid()) return;
 
     $.ajax({
       type: 'POST',
-      url: 'http://39.97.167.25:8080/photo/manager',
+      url: 'http://39.97.167.25:80/photo/manager',
       type: 'post',
       cache: false,
       dataType: 'json',
@@ -165,9 +165,13 @@ $(function () {
         ...param,
       },
       success: function (jsonResult) {
-        showMsg('Successful submission');
-        console.log('success');
-        $('#form-wrap').hide();
+        if (jsonResult.ret) {
+          showMsg('Successful submission');
+          console.log('success');
+          $('#form-wrap').hide();
+          return;
+        }
+        showMsg(jsonResult.msg);
       },
       error: function (data) {
         showMsg(data.msg);
@@ -175,4 +179,19 @@ $(function () {
     });
     // console.log(param);
   });
+
+  window.wxConfig.init();
+
+  window.wxConfig.wxShareConfig({
+    title: 'We need you!',
+    desc: 'We have moved into a Digital Human Society',
+    link: window.location.href.split('#')[0],
+    imgUrl: 'http://photo.qingfeichina.com/image/frc.jpg',
+    onSuccess: function() {
+      console.log('onSuccess')
+    },
+    onCancel: function() {
+      console.log('onCancel')
+    },
+  })
 });

@@ -17,7 +17,7 @@
     <script>
     !function(e,t){var n=t.documentElement,d=e.devicePixelRatio||1;function i(){var e=n.clientWidth/3.75;n.style.fontSize=e+"px"}if(function e(){t.body?t.body.style.fontSize="16px":t.addEventListener("DOMContentLoaded",e)}(),i(),e.addEventListener("resize",i),e.addEventListener("pageshow",function(e){e.persisted&&i()}),2<=d){var o=t.createElement("body"),a=t.createElement("div");a.style.border=".5px solid transparent",o.appendChild(a),n.appendChild(o),1===a.offsetHeight&&n.classList.add("hairlines"),n.removeChild(o)}}(window,document)
     </script>
-    <link href="./index.css?v2" rel="stylesheet">
+    <link href="./index.css?v4" rel="stylesheet">
 
   </head>
   <body>
@@ -235,8 +235,10 @@
     <script src="./lib/1.12.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="./lib/3.7.3/bootstrap.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.8/eruda.js"></script> -->
-    <!-- <script>eruda.init();</script> -->
-    <script src="./index.js?v2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.8/eruda.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+    <script>eruda.init();</script>
+    <script src="./helper/wx.js?v4"></script>
+    <script src="./index.js?v4"></script>
   </body>
 </html>
