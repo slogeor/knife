@@ -158,7 +158,7 @@ $(function () {
     // $('#loading').show();
     $.ajax({
       type: 'POST',
-      url: 'http://39.97.167.25:80/photo/manager',
+      url: 'http://39.97.167.25:80/photo/manager' ,
       type: 'post',
       cache: false,
       dataType: 'json',
@@ -185,10 +185,11 @@ $(function () {
 
   window.wxConfig.init();
 
+  var d1 = new Date();
   window.wxConfig.wxShareConfig({
     title: 'WE NEED YOU！',
     desc: 'FR volunteer, waiting for you.',
-    link: window.location.href.split('#')[0],
+    link: window.location.href.split('#')[0] + '?t=' + d1.getTime(),
     imgUrl: 'http://photo.qingfeichina.com/image/frc.jpg',
     onSuccess: function() {
       console.log('onSuccess')
